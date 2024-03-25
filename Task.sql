@@ -136,7 +136,7 @@ select sum(country.area) as "total area", continent.continent_name from country 
 
 -- Average population density per continent
 
-select avg(country.population) as "average population", continent.continent_name from country inner join continent on country.continent_id = continent.continent_id group by continent.continent_name order by avg(country.population);
+select sum(country.population)/sum(country.area) as "average population", continent.continent_name from country inner join continent on country.continent_id = continent.continent_id group by continent.continent_name order by avg(country.population);
 
 -- For each continent, find a country with the smallest area (print continent name, country name and area)
 
